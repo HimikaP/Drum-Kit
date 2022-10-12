@@ -1,14 +1,22 @@
 var i=1
 while(i<document.querySelectorAll(".drum").length){
-    document.querySelectorAll("button")[i].addEventListener("click", function (){
+    document.querySelectorAll("button")[i].addEventListener("click", function (){ 
+        makeSound(this.innerHTML);
+        
+    })
         // this.style.color = 'white';
 
-        var alpha = this.innerHTML;
-        console.log(alpha)
-        
        
-        switch(alpha) {
-            case "w" : var sound = new Audio('sounds/crash.mp3');
+
+        document.addEventListener("keypress", function(event){
+        makeSound(event.key)
+        
+    })
+    
+    function makeSound(key) {
+
+        switch(key) {
+            case "w" : var sound = new Audio('sounds/tom-1.mp3');
                         sound.play();
                         break;
             case "a" : var sound = new Audio('sounds/tom-2.mp3');
@@ -23,7 +31,7 @@ while(i<document.querySelectorAll(".drum").length){
             case "j" : var sound = new Audio('sounds/crash.mp3');
                         sound.play();
                         break;
-            case "k" : var sound = new Audio('sounds/kick.mp3');
+            case "k" : var sound = new Audio('sounds/kick-bass.mp3');
                         sound.play();
                         break;
             case "l" : var sound = new Audio('sounds/snare.mp3');
@@ -32,10 +40,8 @@ while(i<document.querySelectorAll(".drum").length){
 
                         default: console.log("erroneous code");
 
-        }
-    
-    });
-    
+        }}
+
 
 
     i++;
