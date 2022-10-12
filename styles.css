@@ -65,6 +65,9 @@ footer {
   color: red;
 }
 
+.pressed{
+  opacity: 50%;
+}
 .drum {
   outline: none;
   border: 10px solid #404B69;

@@ -2,14 +2,17 @@ var i=1
 while(i<document.querySelectorAll(".drum").length){
     document.querySelectorAll("button")[i].addEventListener("click", function (){ 
         makeSound(this.innerHTML);
+        Effects(this.innerHTML);
+        
         
     })
         // this.style.color = 'white';
 
        
 
-        document.addEventListener("keypress", function(event){
-        makeSound(event.key)
+        document.addEventListener("keypress", function(e){
+        makeSound(e.key);
+        Effects(e.key)
         
     })
     
@@ -41,7 +44,15 @@ while(i<document.querySelectorAll(".drum").length){
                         default: console.log("erroneous code");
 
         }}
+        
+        function Effects(Ke){
+            var shadowEffect = document.querySelector("." + Ke);
+            shadowEffect.classList.add("pressed");
 
+            setTimeout( ()=>{
+                shadowEffect.classList.remove("pressed");
+            },100 ) ;
+        }
 
 
     i++;
